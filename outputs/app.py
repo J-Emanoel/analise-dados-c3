@@ -30,7 +30,7 @@ st.markdown("""
         font-family: 'Inter', sans-serif;
     }
     
-    /* Sidebar styling */
+    /* Sidebar styling - Keeping it intentionally dark for a modern look */
     [data-testid="stSidebar"] {
         background-color: #0f172a;
         color: #f8fafc;
@@ -41,7 +41,7 @@ st.markdown("""
     
     /* Main container and headers */
     .stApp {
-        background-color: #f8fafc;
+        background-color: var(--background-color);
     }
     
     .header-container {
@@ -78,10 +78,10 @@ st.markdown("""
     
     .kpi-card {
         flex: 1;
-        background-color: white;
+        background-color: var(--secondary-background-color);
         border-radius: 12px;
         padding: 1.5rem;
-        border: 1px solid #e2e8f0;
+        border: 1px solid rgba(128, 128, 128, 0.2);
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -93,7 +93,8 @@ st.markdown("""
     
     .kpi-title {
         font-size: 0.8rem;
-        color: #64748b;
+        color: var(--text-color);
+        opacity: 0.7;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -102,37 +103,83 @@ st.markdown("""
     .kpi-value {
         font-size: 1.8rem;
         font-weight: 800;
-        color: #0f172a;
+        color: var(--text-color);
         margin-top: 0.5rem;
     }
     
     /* Section Cards */
     .section-card {
-        background-color: white;
+        background-color: var(--secondary-background-color);
         border-radius: 12px;
         padding: 1.75rem;
-        border: 1px solid #e2e8f0;
+        border: 1px solid rgba(128, 128, 128, 0.2);
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         margin-bottom: 1.5rem;
+        color: var(--text-color);
+    }
+    
+    .section-card p,
+    .section-card ul,
+    .section-card li,
+    .section-card span,
+    .section-card b,
+    .section-card i {
+        color: var(--text-color) !important;
     }
     
     .section-title {
         font-size: 1.25rem;
         font-weight: 700;
-        color: #0f172a;
+        color: var(--text-color);
         margin-bottom: 1rem;
-        border-bottom: 2px solid #e2e8f0;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.2);
         padding-bottom: 0.5rem;
+    }
+    
+    /* Tabs styling for better visibility across all browsers */
+    button[data-baseweb="tab"] {
+        background-color: var(--secondary-background-color) !important;
+        border: 1px solid rgba(128, 128, 128, 0.2) !important;
+        border-bottom: none !important;
+        border-radius: 8px 8px 0 0 !important;
+        margin-right: 4px !important;
+        padding: 0.5rem 1rem !important;
+        color: var(--text-color) !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease !important;
+        opacity: 0.7;
+    }
+    
+    button[data-baseweb="tab"]:hover {
+        opacity: 1;
+        background-color: var(--background-color) !important;
+    }
+    
+    button[data-baseweb="tab"][aria-selected="true"] {
+        background-color: #3b82f6 !important;
+        color: white !important;
+        border-color: #3b82f6 !important;
+        opacity: 1;
+    }
+    
+    div[data-baseweb="tab-list"] {
+        gap: 0 !important;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.2) !important;
     }
 </style>
 """, unsafe_allow_html=True)
+
+import os
 
 # Data loading
 @st.cache_data
 def load_raw_data():
     try:
-        df_train = pd.read_csv('train.csv')
-        df_test = pd.read_csv('test.csv')
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        data_dir = os.path.join(base_dir, '..', 'data')
+        
+        df_train = pd.read_csv(os.path.join(data_dir, 'train.csv'))
+        df_test = pd.read_csv(os.path.join(data_dir, 'test.csv'))
         return df_train, df_test
     except Exception as e:
         st.error(f"Erro ao ler os arquivos de dados: {e}")
@@ -486,12 +533,12 @@ with tab2:
             yc_pred_filt = clf_model.predict(Xc_val_filt)
             
             acc = accuracy_score(yc_val_filt, yc_pred_filt)
-            cm = confusion_matrix(yc_val_filt, yc_pred_filt)
-            rep = classification_report(yc_val_filt, yc_pred_filt, output_dict=True)
+            cm = confusion_matrix(yc_val_filt, yc_pred_filt, labels=[0, 1])
+            rep = classification_report(yc_val_filt, yc_pred_filt, labels=[0, 1], output_dict=True, zero_division=0)
         else:
             acc = accuracy_score(yc_val, yc_pred_val)
-            cm = confusion_matrix(yc_val, yc_pred_val)
-            rep = classification_report(yc_val, yc_pred_val, output_dict=True)
+            cm = confusion_matrix(yc_val, yc_pred_val, labels=[0, 1])
+            rep = classification_report(yc_val, yc_pred_val, labels=[0, 1], output_dict=True, zero_division=0)
             st.warning("Amostra filtrada de validação muito pequena. Exibindo métricas globais.")
             
         st.metric("Acurácia de Classificação", f"{acc*100:.2f}%")
