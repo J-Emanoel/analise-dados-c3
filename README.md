@@ -24,3 +24,13 @@ Caso o avaliador deseje rodar o visualizador interativo, basta seguir os passos 
    pip install pandas numpy scikit-learn matplotlib seaborn plotly streamlit
   3.Inicie o servidor local da aplicação com o comando:
      streamlit run app.py
+Autores / Membros do Grupo
+Paulo Henrique Nascimento
+
+Murilo Daré 
+
+Eduardo Gobii
+
+Luis Felipe Andrade
+
+João Emanoel
