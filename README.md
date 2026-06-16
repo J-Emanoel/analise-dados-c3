@@ -4,9 +4,9 @@
 Este repositório contém a solução desenvolvida para o Desafio de Análise de Dados e Machine Learning (Hackathon de Preços de Casas). O objetivo do projeto é aplicar o pipeline completo de Ciência de Dados — desde a Análise Exploratória (EDA) e Feature Engineering até a criação de modelos de Aprendizado Supervisionado e Não Supervisionado — para prever e entender a dinâmica dos preços de imóveis.
 
 ## Estrutura do Repositório
-* `trabalho_final_limpo.ipynb`: Jupyter Notebook contendo todo o código de tratamento de dados, modelagem matemática (Random Forest, K-Means, PCA, Isolation Forest) e o Storytelling analítico do projeto.
-* `app.py`: Código-fonte do Dashboard interativo construído para apoiar a visualização dos resultados de forma dinâmica.
-* `train.csv` / `test.csv`: Bases de dados originais utilizadas no desafio.
+* `notebooks/trabalho_analise_c3.ipynb`: Jupyter Notebook contendo todo o código de tratamento de dados, modelagem matemática (Random Forest, K-Means, PCA, Isolation Forest) e o Storytelling analítico do projeto.
+* `outputs/app.py`: Código-fonte do Dashboard interativo em Streamlit.
+* `data/train.csv` / `data/test.csv`: Bases de dados originais utilizadas no desafio.
 
 ## Tecnologias e Bibliotecas Utilizadas
 * **Linguagem:** Python
@@ -21,9 +21,14 @@ Caso o avaliador deseje rodar o visualizador interativo, basta seguir os passos 
 1. Clone este repositório para a sua máquina.
 2. Certifique-se de ter o Python instalado e instale as dependências executando:
    ```bash
-   pip install pandas numpy scikit-learn matplotlib seaborn plotly streamlit
-  3.Inicie o servidor local da aplicação com o comando:
-     streamlit run app.py
+   python -m pip install -r requirements.txt
+   ```
+3. Inicie o servidor local da aplicação com o comando:
+   ```bash
+   python -m streamlit run outputs/app.py
+   ```
+
+Para publicar no Streamlit Community Cloud, selecione `outputs/app.py` como arquivo principal da aplicação.
 Autores / Membros do Grupo
 Paulo Henrique Nascimento
 

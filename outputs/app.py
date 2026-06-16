@@ -11,6 +11,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, a
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.ensemble import IsolationForest
+from pathlib import Path
 
 # Page configuration
 st.set_page_config(
@@ -169,17 +170,15 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-import os
-
 # Data loading
 @st.cache_data
 def load_raw_data():
     try:
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        data_dir = os.path.join(base_dir, '..', 'data')
+        project_root = Path(__file__).resolve().parents[1]
+        data_dir = project_root / 'data'
         
-        df_train = pd.read_csv(os.path.join(data_dir, 'train.csv'))
-        df_test = pd.read_csv(os.path.join(data_dir, 'test.csv'))
+        df_train = pd.read_csv(data_dir / 'train.csv')
+        df_test = pd.read_csv(data_dir / 'test.csv')
         return df_train, df_test
     except Exception as e:
         st.error(f"Erro ao ler os arquivos de dados: {e}")
