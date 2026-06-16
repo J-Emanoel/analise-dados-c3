@@ -37,13 +37,12 @@ Caso o avaliador deseje rodar o visualizador interativo, basta seguir os passos 
 
 Versão publicada no Streamlit: [https://avaliacaoc3.streamlit.app/](https://avaliacaoc3.streamlit.app/)
 
-Autores / Membros do Grupo
-Paulo Henrique Nascimento
+## Apresentação do Trabalho
+Informamos que, por decisão do grupo, optamos por não realizar a apresentação presencial em sala de aula, conforme facultado pelo critério de avaliação da disciplina. Todo o conteúdo desenvolvido, o Storytelling da análise e os resultados técnicos encontram-se documentados detalhadamente no Jupyter Notebook e suportados pelo Dashboard interativo, estando ambos disponíveis neste repositório para consulta e avaliação.
 
-Murilo Daré 
-
-Eduardo Gobii
-
-Luis Felipe Andrade
-
-João Emanoel
+## Autores / Membros do Grupo
+* Paulo Henrique Nascimento
+* Murilo Daré
+* Eduardo Gobii
+* Luis Felipe Andrade
+* João Emanoel
