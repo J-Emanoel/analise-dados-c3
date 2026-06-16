@@ -1,5 +1,12 @@
 # Sistema Analítico Ames Housing - Análise de Dados Aplicada à Computação 
 
+## Acesse o Dashboard
+Explore a versão interativa do projeto diretamente no Streamlit:
+
+**[Abrir Dashboard Ames Housing](https://avaliacaoc3.streamlit.app/)**
+
+Use os filtros laterais para navegar pelos bairros, comparar preços e visualizar os resultados de regressão, classificação, clusterização, PCA e detecção de outliers.
+
 ## Sobre o Projeto
 Este repositório contém a solução desenvolvida para o Desafio de Análise de Dados e Machine Learning (Hackathon de Preços de Casas). O objetivo do projeto é aplicar o pipeline completo de Ciência de Dados — desde a Análise Exploratória (EDA) e Feature Engineering até a criação de modelos de Aprendizado Supervisionado e Não Supervisionado — para prever e entender a dinâmica dos preços de imóveis.
 
@@ -28,7 +35,8 @@ Caso o avaliador deseje rodar o visualizador interativo, basta seguir os passos 
    python -m streamlit run outputs/app.py
    ```
 
-Para publicar no Streamlit Community Cloud, selecione `outputs/app.py` como arquivo principal da aplicação.
+Versão publicada no Streamlit: [https://avaliacaoc3.streamlit.app/](https://avaliacaoc3.streamlit.app/)
+
 Autores / Membros do Grupo
 Paulo Henrique Nascimento
 
