@@ -41,8 +41,9 @@ Versão publicada no Streamlit: [https://avaliacaoc3.streamlit.app/](https://ava
 Informamos que, por decisão do grupo, optamos por não realizar a apresentação presencial em sala de aula, conforme facultado pelo critério de avaliação da disciplina. Todo o conteúdo desenvolvido, o Storytelling da análise e os resultados técnicos encontram-se documentados detalhadamente no Jupyter Notebook e suportados pelo Dashboard interativo, estando ambos disponíveis neste repositório para consulta e avaliação.
 
 ## Autores / Membros do Grupo
+* João Emanoel Justino
 * Paulo Henrique Nascimento
-* Murilo Daré
 * Eduardo Gobii
 * Luis Felipe Andrade
-* João Emanoel
+* Murilo Daré
+
